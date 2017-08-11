@@ -1,5 +1,6 @@
 <%= link_to cocktail_path(cocktail) do %>
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://www.bpremium.com/blog/wp-content/uploads/2015/09/LePopCocktailBar_Cocktail.jpg');">
+  <div class="card"
+        style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo.path, height: 200, width: 400, crop: :fill %>')">
     <div class="card-description">
       <h2> <%= cocktail.name %></h2>
     </div>

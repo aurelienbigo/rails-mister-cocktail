@@ -36,12 +36,18 @@ class CocktailsController < ApplicationController
     redirect_to cocktails_path
   end
 
+  def top
+    @cocktails = Cocktail.first(3)
+  end
+
+  private
+
   def set_cocktails
     @cocktail = Cocktail.find(params[:id])
   end
 
   def params_cocktail
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :photo)
   end
 
 end

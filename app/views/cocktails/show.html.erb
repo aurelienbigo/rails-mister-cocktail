@@ -1,17 +1,27 @@
-<h1> <%= @cocktail.name %> </h1>
+<div class="container">
 
-<div>
-  <h3>Ingredients and doses for <%= @cocktail.name %> </h3>
+<div class="name_cocktail">
+  <h1> <%= @cocktail.name %> </h1>
+</div>
+<div class="show_cocktail">
 
-  <ul>
-    <% @cocktail.doses.each do |dose| %>
-      <li><p> <%= dose.ingredient.name %></p></li>
-      <li><p> <%= dose.description %></p></li>
-    <% end %>
-  </ul>
+
+<div class="cocktail_image">
+<% if @cocktail.photo? %>
+  <%= cl_image_tag @cocktail.photo.path, width: 300, height: 300, crop: :fill %>
+<% end %>
 </div>
 
-<%= link_to 'Add a dose', new_cocktail_dose_path(:cocktail_id), class: 'btn btn-success' %>
+<div class="cocktail_details">
+  <h3>Ingredients and doses for <%= @cocktail.name %> </h3>
+    <ul>
+      <% @cocktail.doses.each do |dose| %>
+        <li><p> <%= dose.ingredient.name %> <%= dose.description %></p></li>
+     <% end %>
+    </ul>
+</div>
 
-
+<%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail), class: 'btn btn-success' %>
+</div>
+</div>
 

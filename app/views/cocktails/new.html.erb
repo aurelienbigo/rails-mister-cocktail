@@ -1,4 +1,6 @@
-<%= simple_form_for @cocktail do |f| %>
-  <h1><%= f.input :name %></h1>
-  <%= f.submit class: "btn btn-success" %>
-<% end %>
+<div class="col-xs-12 col-sm-4">
+  <%= simple_form_for @cocktail do |f| %>
+    <%= f.input :name %>
+    <%= f.submit class: "btn btn-success" %>
+  <% end %>
+</div>
